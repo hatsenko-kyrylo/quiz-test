@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import MainPage from './pages/MainPage';
+import QuizPage from './pages/QuizPage';
+import EditPage from './pages/EditPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='h-dvh p-10 w-full flex justify-center items-center'>
+            <Routes>
+                <Route path='/' element={<MainPage />} />
+                <Route path='/quiz/:id' element={<QuizPage />} />
+                <Route path='/add' element={<EditPage type='ADD' />} />
+
+                {/* Недороблено <Route path='/edit' element={<EditPage type='EDIT' />} /> */}
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
